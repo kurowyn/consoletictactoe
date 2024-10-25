@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define FALSE 0
 #define TRUE 1
@@ -34,11 +35,11 @@ int in_array(int *arr, int arr_len, int element){ // Not a truly general solutio
 int check_win(const char symbol){ // There could be some tictactoe win algorithm hiding out there.
     for(int i = 0; i < 3; i++){
         if(tictactoe_board[i * 3] == symbol && tictactoe_board[1 + i * 3] == symbol && tictactoe_board[2 + i * 3] == symbol ||
-           tictactoe_board[i] == symbol && tictactoe_board[i + 3] == symbol && tictactoe_board[i + 6] == symbol || 
-           tictactoe_board[0] == symbol && tictactoe_board[4] == symbol  && tictactoe_board[8] == symbol ||         
-           tictactoe_board[2] == symbol && tictactoe_board[4] == symbol  && tictactoe_board[6] == symbol){         
+           tictactoe_board[i] == symbol && tictactoe_board[i + 3] == symbol && tictactoe_board[i + 6] == symbol ||
+           tictactoe_board[0] == symbol && tictactoe_board[4] == symbol  && tictactoe_board[8] == symbol ||
+           tictactoe_board[2] == symbol && tictactoe_board[4] == symbol  && tictactoe_board[6] == symbol){
            return TRUE;
-           }   
+           }
         }
     return FALSE;
 }
@@ -62,9 +63,9 @@ void play(player_t player_1, player_t player_2, int current_player_turn){
             system("cls");
             print_board();
             printf("Current turn: %c\nSelect a square: ", current_player.player_symbol);
-            scanf("%d", &current_player.player_square);        
+            scanf("%d", &current_player.player_square);
             if(in_array(return_remaining_squares(), return_remaining_squares()[0] + 1, current_player.player_square)){
-                break; 
+                break;
             }
         }
         update_board(current_player.player_symbol, current_player.player_square);
@@ -72,17 +73,17 @@ void play(player_t player_1, player_t player_2, int current_player_turn){
 }
 void main(){
     player_t player_1, player_2;
-    while(TRUE){  
-        system("cls");  
-        printf("\nPlayer 1 Symbol: ");
-        player_1.player_symbol = fgetc(stdin);
+    while(TRUE){
+        system("cls");
+        printf("\nPlayer 1 Symbol ('X' or 'O'): "); //indicate the symboles
+        player_1.player_symbol = toupper(fgetc(stdin)); // pass lowercase characters for easier input for user
         if((int)player_1.player_symbol == (int)'X' || (int)player_1.player_symbol == (int)'O'){
             break;
         }
     }
     player_2.player_symbol = (char)((int)'X' + (int)'O' - (int)player_1.player_symbol);
     printf("Player 2 Symbol: %c\n", player_2.player_symbol);
-    system("pause");  
+    system("pause");
 
     while(TRUE){
         play(player_1, player_2, PLAYER_1);
