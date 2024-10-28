@@ -1,9 +1,9 @@
 # Console Tic-Tac-Toe :
-- The paper-and-pencil game tictactoe, playable through the terminal, written in the C programming language (Made for 2-player experience).
+- The board game tictactoe, playable through the terminal, written in the C programming language (Made for 2-player experience).
 # Rules :
-- The game is played on a grid that's 3 squares by 3 squares.
-- You are X , your friend (or the computer in this case) is O . Players take turns putting their marks in empty squares.
-- The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
-- When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
+- The game is played on a 3 by 3 grid, as you'd expect.
+- Each player selects their own symbol (X or O). The players are labeled "Player 1" and "Player 2" by default.
+- The first player to have filled a row, column or a diagonal is the winner, as would be the case in a traditional game of tictactoe.
+- The game will end if all squares are full; if the board does not have any winning pattern, the game ends in a draw.
 # Future plans :
 - Single player mode coming soon.
