@@ -1,2 +1,3 @@
+CC=gcc
 compile: main.c cttt.c
-  @gcc cttt.c main.c -o cttt
+  @$(CC) cttt.c main.c -o cttt
