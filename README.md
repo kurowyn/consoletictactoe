@@ -9,5 +9,5 @@ cd consoletictactoe
 make compile
 ./cttt
 ```
-Dependencies: none. Just the GCC compiler. You can use any other compiler to your liking,
-by modifying the CC variable in the Makefile.
+Dependencies: Just the standard C library, and a C compiler. The one used here is GCC, although you can use any other compiler to your liking,
+by modifying the CC variable in the Makefile. 
